@@ -1,5 +1,6 @@
 import { getNcArticles } from "../assets/utilities/api";
 import { useState,useEffect,useParams } from "react";
+import { ArticleCard } from "./articleCard";
 
 export const Articles =()=>{
     const [isLoading,setIsLoading]=useState(true)
@@ -21,24 +22,15 @@ export const Articles =()=>{
     
     return(        
         <>
+        <div className="body">
         <ul>
             {
                 articles.map((article) =>(
-                    
-                    <div>
-                    <li key={article.id}>
-                    <p>{article.author}</p>
-                    <p>{article.title}</p>
-                    <p>{article.topic}</p>
-                    <p>{article.created_at}</p>
-                    <p>{article.votes}</p>
-                    <p>{article.article_img_url}</p>
-                    <p>{article.comment_count}</p>
-                    </li>
-                    </div>
+                    <ArticleCard article = {article}/>  
                 ))
             }
             </ul>
+            </div>
         </>
     )
 }
