@@ -16,3 +16,10 @@ export const getNcArticles = ()=>{
         return data.data;
     })
 }
+
+export const getNcArticleById = ()=>{
+    // console.log(slug,'<---slug value at api');
+    return ncNewsApi.get("/articles?article_id").then((data)=>{
+        return data.data;
+    })
+}
