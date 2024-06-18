@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getNcTopics } from "../assets/utilities/api";
 import {Link, useParams} from "react-router-dom"
 import { Articles } from "./articles";
+import { ArticleCard } from "./articleCard";
 
 
 
@@ -25,16 +26,21 @@ export const  MyNavbar =()=>{
     }
     return(
         <>
-        <nav>
-            <ul>
-        { topics.map((topic,index)=> (
-            
-                                 <li><Link to={`/${topic.slug}`} key={index}> {topic.slug}</Link></li> 
+
+
+    
+      
+
+<nav className="navbar navbar-dark bg-secondary">
+
+    <div>
+                { topics.map((topic,index)=> (
+            <Link to={`/${topic.slug}`} key={index} className="links" style={{ textDecoration: 'none' }}> {topic.slug}</Link>
             
                                     )   
                     )
         }
-        </ul>
+    </div>
        </nav>
 
        <Articles />

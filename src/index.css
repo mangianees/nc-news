@@ -1,0 +1,21 @@
+.links{
+    color: white;
+}
+.body{
+    background-color: rgba(144, 148, 148, 0.425);
+}
+.articleCard{
+    display: flex;
+    flex-direction: row;
+    border: solid;
+    color: red;
+    width: fit-content;
+    height: fit-content;
+}
+.imageCard{
+    width:200px;
+    height: 200px;
+    border: solid;
+    color: blue;
+    float: left;
+}
