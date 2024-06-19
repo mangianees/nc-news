@@ -1,35 +1,47 @@
-import { getNcArticles } from "../assets/utilities/api";
-import { useState,useEffect,useParams } from "react";
+import { useState,useEffect} from "react";
 import { ArticleCard } from "./articleCard";
+import { useParams } from "react-router-dom";
+import { getNcArticleById } from "../assets/utilities/api";
 
-export const Articles =()=>{
+
+export const Articles =({articles})=>{
+
     const [isLoading,setIsLoading]=useState(true)
-    const [articles,setArticles] = useState('');
-    // const { slug } = useParams();
+    const [allArticles,setAllArticles] = useState('');
+    const {article_id} = useParams();
+    
 
-    useEffect(()=>{
-        setIsLoading(true)
-        getNcArticles().then((articles)=>{
-            setArticles(articles)   
+    if(article_id){
+              useEffect(()=>{
+              setIsLoading(true)
+              setAllArticles('')
+              getNcArticleById(article_id).then((articlesFromApi)=>{
+              setAllArticles(articlesFromApi)  
+              })
+              setIsLoading(false)
+            },[article_id])
+    }else{
+        useEffect(()=>{
+            setIsLoading(true)
+            setAllArticles('')
+            setAllArticles(articles)
             setIsLoading(false)
-        })
+        },[article_id])
 
-    },[])
-
-    if(isLoading){
-        return <p>Loading.........</p>
     }
     
-    return(        
+    return isLoading?(<p>Loading.........</p>):
+                      (         
         <>
         <div className="body">
-        <ul>
-            {
-                articles.map((article) =>(
-                    <ArticleCard article = {article}/>  
-                ))
+            {   !allArticles ? null :allArticles.map((article) =>{
+                                    return (<>
+                                    <ArticleCard article = {article}/>
+                                    </>)
+                                    })
+            
+                
             }
-            </ul>
             </div>
         </>
     )
