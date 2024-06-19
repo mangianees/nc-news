@@ -2,20 +2,18 @@
     color: white;
 }
 .body{
-    background-color: rgba(144, 148, 148, 0.425);
+    /* background-color: rgba(144, 148, 148, 0.425); */
 }
-.articleCard{
-    display: flex;
-    flex-direction: row;
-    border: solid;
-    color: red;
-    width: fit-content;
-    height: fit-content;
-}
+
 .imageCard{
     width:200px;
     height: 200px;
     border: solid;
-    color: blue;
+    color: rgb(17, 17, 17);
     float: left;
+}
+
+.cardBody{
+    background-color: rgba(228, 207, 207, 0.774);
+    color: black;
 }
