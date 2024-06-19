@@ -2,6 +2,7 @@ import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react"
 import Card from 'react-bootstrap/Card';
+import { Comments } from './comments';
 
 export const ArticleCard=({article})=>{
     
@@ -43,6 +44,7 @@ const [isLoading,setIsLoading] = useState(true);
             
           </Card.Body>
       </Link>
+      <Comments />
     </Card>
 
     )

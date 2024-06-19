@@ -10,6 +10,7 @@ export const Articles =({articles})=>{
     const [allArticles,setAllArticles] = useState('');
     const {article_id} = useParams();
     
+    //just a setup of getNcArticleByIdWithComments as data as desired in useEffect
 
     if(article_id){
               useEffect(()=>{

@@ -31,8 +31,9 @@ if(isLoading){
           <Header />
           <MyNavbar />
           <Routes>
-              <Route path="/" element={<Articles articles={articles}/>}></Route>
-              <Route path="/articles/:article_id" element={<Articles articles={articles}/>}></Route>
+              <Route path="/" element={<Articles articles={articles}/>}>Home Route</Route>
+              <Route path="/articles/:article_id" element={<Articles articles={articles}/>}>Article Route</Route>
+              <Route path="/articles/:article_id/comments" element={<Articles articles={articles}/>}>Article Comment Route</Route>
           </Routes>
           </BrowserRouter>
         </>

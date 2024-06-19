@@ -21,3 +21,9 @@ export const getNcArticleById = (article_id)=>{
         return data.data;
     })
 }
+
+export const getNcArticleByIdWithComments = (article_id)=>{
+    return ncNewsApi.get(`/articles/${article_id}/comments`).then((data)=>{
+        return data.data;
+    })
+}
