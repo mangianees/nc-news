@@ -30,8 +30,8 @@ export const getNcArticleByIdWithComments = (article_id)=>{
 
 export const patchNCVote = (article_id,vote)=>{
     console.log('vote at api---->',vote);
-    return ncNewsApi.patch(`/articles/${article_id}/comments`,vote).then((data)=>{
-        console.log('data.data---->',data.data);
+    return ncNewsApi.patch(`/articles/${article_id}`,vote).then((data)=>{
+        console.log('data.data---->',data.votes);
         return data.data;
     })
 }
