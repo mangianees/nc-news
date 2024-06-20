@@ -2,9 +2,9 @@ import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react"
 import Card from 'react-bootstrap/Card';
-import { Comments } from './comments';
+import { ArticleWithComments } from './articleWithComments';
 
-export const ArticleCard=({article})=>{
+export const ArticleCard=({article,onSelectArticle})=>{
     
 
 const[dataOfArticle,setDataOfArticle] = useState();
@@ -17,10 +17,13 @@ const [isLoading,setIsLoading] = useState(true);
     },[])
     
     return isLoading ? (<p>Data Loading</p>):(
+        <div onClick={()=>{onSelectArticle(dataOfArticle.article_id)}}>
         <Card className='cardBody'>
-          <Link to={`/articles/${dataOfArticle.article_id}`}>
+          
             <Card.Body className='cardBody'>
+            <Link to={`/articles/${dataOfArticle.article_id}`}>    
               <Card.Title>Author: {dataOfArticle.author} Title: {dataOfArticle.title}</Card.Title>
+            </Link>
               <Card.Subtitle className="mb-2 text-muted">Topic: {dataOfArticle.topic}</Card.Subtitle>
               <Card.Img variant="top" src={dataOfArticle.article_img_url} className='imageCard'/>
               <Card.Text>
@@ -39,13 +42,13 @@ const [isLoading,setIsLoading] = useState(true);
               </span>
             
             <br /><br />
-            <Button variant="dark">Comments: {dataOfArticle.comment_count}</Button>
-            
-            
+    
+            <Link to={`/articles/${dataOfArticle.article_id}/comments`}>Comments: {dataOfArticle.comment_count}</Link>
           </Card.Body>
-      </Link>
-      <Comments />
+      
+      <ArticleWithComments />
     </Card>
+    </div>
 
     )
 }

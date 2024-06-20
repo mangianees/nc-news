@@ -4,14 +4,15 @@ import { useParams } from "react-router-dom";
 import { getNcArticleById } from "../assets/utilities/api";
 
 
-export const Articles =({articles})=>{
+export const Articles =({articles,onSelectArticle})=>{
 
     const [isLoading,setIsLoading]=useState(true)
     const [allArticles,setAllArticles] = useState('');
     const {article_id} = useParams();
     
-    //just a setup of getNcArticleByIdWithComments as data as desired in useEffect
+    
 
+    
     if(article_id){
               useEffect(()=>{
               setIsLoading(true)
@@ -37,7 +38,7 @@ export const Articles =({articles})=>{
         <div className="body">
             {   !allArticles ? null :allArticles.map((article) =>{
                                     return (<>
-                                    <ArticleCard article = {article}/>
+                                    <ArticleCard key={article.article_id} article = {article} onSelectArticle={onSelectArticle}/>
                                     </>)
                                     })
             
