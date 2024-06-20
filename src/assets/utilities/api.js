@@ -27,3 +27,11 @@ export const getNcArticleByIdWithComments = (article_id)=>{
         return data.data;
     })
 }
+
+export const patchNCVote = (article_id,vote)=>{
+    console.log('vote at api---->',vote);
+    return ncNewsApi.patch(`/articles/${article_id}/comments`,vote).then((data)=>{
+        console.log('data.data---->',data.data);
+        return data.data;
+    })
+}

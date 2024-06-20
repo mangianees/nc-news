@@ -9,10 +9,6 @@ export const Articles =({articles,onSelectArticle})=>{
     const [isLoading,setIsLoading]=useState(true)
     const [allArticles,setAllArticles] = useState('');
     const {article_id} = useParams();
-    
-    
-
-    
     if(article_id){
               useEffect(()=>{
               setIsLoading(true)
@@ -32,14 +28,15 @@ export const Articles =({articles,onSelectArticle})=>{
 
     }
     
+
     return isLoading?(<p>Loading.........</p>):
                       (         
         <>
         <div className="body">
             {   !allArticles ? null :allArticles.map((article) =>{
-                                    return (<>
-                                    <ArticleCard key={article.article_id} article = {article} onSelectArticle={onSelectArticle}/>
-                                    </>)
+                                    return (<div key={article.article_id} >
+                                    <ArticleCard article = {article} onSelectArticle={onSelectArticle}/>
+                                    </div>)
                                     })
             
                 

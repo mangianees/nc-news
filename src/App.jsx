@@ -10,6 +10,11 @@ function App() {
 
   const [isLoading,setIsLoading] = useState(true)
   const [articles,setArticles] = useState();
+  const [selectedArticleId, setSelectedArticleId] = useState(null);
+
+  // const handleSelectArticle = (id) => {
+  //     setSelectedArticleId(id);
+  // };
 
     useEffect(()=>{
       setIsLoading(true)
@@ -32,7 +37,7 @@ if(isLoading){
           <MyNavbar />
           <Routes>
               <Route path="/" element={<Articles articles={articles}/>}>Home Route</Route>
-              <Route path="/articles/:article_id" element={<Articles articles={articles}/>}>Article Route</Route>
+              <Route path="/articles/:article_id" element={<Articles articles={articles} />}>Article Route</Route>
               <Route path="/articles/:article_id/comments" element={<Articles articles={articles}/>}>Article Comment Route</Route>
           </Routes>
           </BrowserRouter>

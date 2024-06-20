@@ -11,14 +11,12 @@ export const ArticleWithComments =()=>{
     
     useEffect(()=>{
     if(article_id){ 
-        console.log(article_id,'<--article_id');
+
         getNcArticleById(article_id).then((articlesFromApi)=>{
-            console.log(articlesFromApi,'<---articlesFromApi');
         setArticle(articlesFromApi)
         })
 
         getNcArticleByIdWithComments(article_id).then((commentsFromApi)=>{
-            console.log(commentsFromApi,'commentsFromApi');
             setComments(commentsFromApi)
         })
     }
@@ -26,14 +24,11 @@ export const ArticleWithComments =()=>{
     },[article_id])
 
     return !article?(null):(
-        
         <>
-        
-
         {comments.map((comment) =>{
-                                    return (<>
-                                    <CommentCard key={comment.comment_id} comment = {comment}/>
-                                    </>)
+                                    return (<div key={comment.comment_id} >
+                                    <CommentCard comment = {comment}/>
+                                    </div>)
                                     })}
         </>
     )
