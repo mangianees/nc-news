@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { getNcTopics } from "../assets/utilities/api";
 import {Link, useParams} from "react-router-dom"
 import { Articles } from "./articles";
-import { ArticleCard } from "./articleCard";
 
 
 
