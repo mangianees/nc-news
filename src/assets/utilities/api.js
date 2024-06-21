@@ -28,10 +28,10 @@ export const getNcArticleByIdWithComments = (article_id)=>{
     })
 }
 
-export const patchNCVote = (article_id,vote)=>{
-    console.log('vote at api---->',vote);
-    return ncNewsApi.patch(`/articles/${article_id}`,vote).then((data)=>{
-        console.log('data.data---->',data.votes);
-        return data.data;
+export const patchNCVote = (article_id,patchObject)=>{
+
+    return ncNewsApi.patch(`/articles/${article_id}`,patchObject).then(({data})=>{
+        
+        return data;
     })
 }

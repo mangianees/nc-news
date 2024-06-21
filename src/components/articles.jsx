@@ -19,6 +19,7 @@ export const Articles =({articles,onSelectArticle})=>{
               setIsLoading(false)
             },[article_id])
     }else{
+        
         useEffect(()=>{
             setIsLoading(true)
             setAllArticles('')
